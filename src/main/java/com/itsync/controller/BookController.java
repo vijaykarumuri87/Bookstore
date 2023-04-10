@@ -73,5 +73,11 @@ public class BookController implements BooksApi {
         List<Book> bookList = bookRepository.findAllEbooks();
         return ResponseEntity.ok(ResponseModel.builder().data(bookList).totalItems(Long.valueOf(bookList.size())).build());
     }
+
+    @Override
+    public ResponseEntity<ResponseModel> fetchByAuthorAndExcludeGenre(String author, String excludeGenre) {
+        List<Book> bookList = bookRepository.findByAuthorAndNotGenreIgnoreCase(author, excludeGenre);
+        return ResponseEntity.ok(ResponseModel.builder().data(bookList).totalItems(Long.valueOf(bookList.size())).build());
+    }
 }
 

@@ -14,6 +14,9 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     List<Book> findByAuthorContainingIgnoreCase(String author);
 
+    List<Book> findByGenreNotIgnoreCase(String genre);
+
+
     void deleteById(Long id);
 
     List<Book> findByVolumesGreaterThan(int i);
@@ -22,6 +25,13 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     default List<Book> findAllEbooks() {
         return findByFormatIgnoreCase("ebook");
+    }
+
+    default List<Book> findByAuthorAndNotGenreIgnoreCase(String author, String genre) {
+        List<Book> booksByAuthor = findByAuthorContainingIgnoreCase(author);
+        List<Book> booksNotInGenre = findByGenreNotIgnoreCase(genre);
+        booksByAuthor.retainAll(booksNotInGenre);
+        return booksByAuthor;
     }
 }
 
