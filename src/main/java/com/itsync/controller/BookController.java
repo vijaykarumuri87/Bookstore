@@ -67,5 +67,11 @@ public class BookController implements BooksApi {
         List<Book> bookList = bookRepository.findByAuthorContainingIgnoreCase(author);
         return ResponseEntity.ok(ResponseModel.builder().data(bookList).totalItems(Long.valueOf(bookList.size())).build());
     }
+
+    @Override
+    public ResponseEntity<ResponseModel> fetchAlleBooks(String format, final Pageable pageable) {
+        List<Book> bookList = bookRepository.findAllEbooks();
+        return ResponseEntity.ok(ResponseModel.builder().data(bookList).totalItems(Long.valueOf(bookList.size())).build());
+    }
 }
 

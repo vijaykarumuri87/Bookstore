@@ -24,3 +24,6 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.book
     OWNER to postgres;
+
+
+

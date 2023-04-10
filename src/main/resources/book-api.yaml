@@ -151,6 +151,29 @@ paths:
               schema:
                 $ref: "#/components/schemas/Response"
 
+  /books/fetchAlleBooks:
+    get:
+      tags:
+        - books
+      summary: "fetch all eBooks"
+      operationId: fetchAlleBooks
+      x-operationId-exception: true
+      parameters:
+        - in: query
+          explode: false
+          name: format
+          required: false
+          schema:
+            type: string
+      x-spring-paginated: true
+      responses:
+        200:
+          description: "List of All books that are eBooks"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+
 
 components:
   parameters:
