@@ -28,7 +28,7 @@ ALTER TABLE IF EXISTS public.book
 
 API should be able to handle following CRUD operations
 
-1) Add new Book
+1) Add new Book <br/>
    curl --location 'http://localhost:8081/api/v1/books/addBook' \
    --header 'Content-Type: application/json' \
    --data '{
@@ -40,7 +40,7 @@ API should be able to handle following CRUD operations
    "genre": "other"
    }'
 
-2) Update existing book
+2) Update existing book <br/>
    curl --location --request PUT 'http://localhost:8081/api/v1/books/updateBook' \
    --header 'Content-Type: application/json' \
    --data '{
@@ -54,24 +54,24 @@ API should be able to handle following CRUD operations
    }'
 
 
-3) Delete a book
+3) Delete a book <br/>
    curl --location --request DELETE 'http://localhost:8081/api/v1/books/deleteBookById/20' \
    --data ''
 
-4) Fetch all books
+4) Fetch all books <br/>
    curl --location 'http://localhost:8081/api/v1/books/getAllBooks'
 
 we can also filter books with pagination
 curl --location 'http://localhost:8081/api/v1/books/getAllBooks?page=1&size=1'
 
-API should be able to handle the following search requests:
+API should be able to handle the following search requests: <br/>
 
-1)  All eBooks
+1)  All eBooks <br/>
     curl --location 'http://localhost:8081/api/v1/books/fetchAlleBooks'
 
-2)  Books with more than 4 volumes/series
+2)  Books with more than 4 volumes/series <br/>
     curl --location 'http://localhost:8081/books/fetchVolumesGreaterThanFour'
 
-3)  Books with particular author but not specific genre.
+3)  Books with particular author but not specific genre. <br/>
     curl --location 'http://localhost:8081/api/v1/books/fetchByAuthorAndExcludeGenre?author=Author2&excludeGenre=test'
 
