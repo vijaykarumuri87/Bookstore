@@ -29,9 +29,8 @@ public class Book {
     @Column(name ="volumes")
     private Integer volumes;
 
-//    @Column(name = "price")
-//    private BigDecimal price;
+    @Column(name ="format")
+    private String format;
 
-    // constructors, getters, setters, and toString method
 
 }
